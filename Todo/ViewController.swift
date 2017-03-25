@@ -30,17 +30,25 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("row selected")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath)
+        
+        cell.contentView.backgroundColor = UIColor.green
+        print("row selected " + String(describing: indexPath))
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
+        //Think I need to set the cell color here.
+        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell")
         return cell!
     }
+    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        cell.backgroundColor = UIColor.clear
+//    }
 
     
     
